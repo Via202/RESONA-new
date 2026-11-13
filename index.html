@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Create procedural music or remix audio in RESONA, an interactive audiovisual experience in your browser."><title>RESONA — Sound into shape</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"></head>
+<body class="home-page"><header class="site-header"><nav class="site-nav" aria-label="Main navigation"><a href="index.html" aria-current="page">Home</a><a href="experience.html" >Experience</a><a href="credits.html" >Credits</a></nav></header>
+<main class="landing">
+  <div class="landing-corners">
+    <span>AN EXPERIMENT IN SOUND &amp; FORM</span>
+    <span>A PLAYABLE VISUAL INSTRUMENT</span>
+  </div>
+  <a class="landing-entry" href="experience.html" aria-labelledby="enter-label">
+    <div class="landing-copy">
+      <h1 id="home-title">RESONA</h1>
+      <p class="landing-tagline">Make music. See it move.</p>
+      <p class="landing-intro"><span>Create procedural music or remix a track</span> <span>in an interactive audiovisual experience.</span></p>
+      <span id="enter-label">CLICK TO ENTER</span>
+    </div>
+  </a>
+  <div class="landing-listening"><small class="headphone-note"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true" focusable="false"><path d="M4 14v-3a8 8 0 0 1 16 0v3"/><rect x="4" y="12" width="4" height="7" rx="1.5"/><rect x="16" y="12" width="4" height="7" rx="1.5"/></svg>Use headphones for best experience</small></div>
+</main>
+<div id="home-cursor" aria-hidden="true" hidden></div>
+<script type="module" src="js/home-cursor.js"></script>
+</body></html>

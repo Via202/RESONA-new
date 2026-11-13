@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RESONA — Underwater</title><link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gugi&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="cyber-hud.css"></head>
+<body class="experience-page">
+<header class="site-header"><a class="brand" href="index.html">RESONA</a><span class="edition">AN EXPERIMENT IN SOUND & FORM</span><nav class="site-nav" aria-label="Main navigation"><a href="index.html" >Home</a><a href="experience.html" aria-current="page">Experience</a><a href="credits.html" >Credits</a></nav></header>
+<main>
+<div class="topline"><div><span class="eyebrow">01 / ENVIRONMENT</span><h1><span id="environment-title">Underwater</span></h1></div><p id="environment-description">Go below the surface. Let the sound take shape.</p></div>
+<nav id="environments" class="selectors" aria-label="Environment"><button data-environment="underwater" aria-pressed="true">01 / Underwater</button><button data-environment="dreamcore" aria-pressed="false">02 / Dreamcore</button><button data-environment="space" aria-pressed="false">03 / Space</button><button data-environment="retro" aria-pressed="false">04 / Lo-fi Retro</button><button data-environment="cyberpunk" aria-pressed="false">05 / Digital Cyberpunk</button></nav>
+<section id="cyber-hud" class="cyber-hud" aria-labelledby="hud-title" hidden>
+  <div class="hud-heading">
+    <span class="hud-index">● PHOSPHOR SYSTEMS</span>
+    <h2 id="hud-title">Cybernetic field scanner</h2>
+    <p>Spatial signal reconstruction</p>
+  </div>
+  <aside class="hud-frame hud-left" aria-label="Field diagnostics">
+<svg class="hud-outline" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" vector-effect="non-scaling-stroke" d="M2 20 L2 98 L98 98 L98 2 L20 2 Z"/></svg>
+    <h3>01 / FIELD SCAN</h3>
+    <p data-hud-log></p>
+    <progress data-hud-scan max="1" value="0" aria-label="Render pass progress"></progress>
+  </aside>
+  <div class="hud-right">
+    <aside class="hud-frame" aria-label="Audio diagnostics">
+<svg class="hud-outline" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" vector-effect="non-scaling-stroke" d="M98 22 L78 2 L2 2 L2 98 L98 98 Z"/></svg>
+      <h3>02 / SIGNAL INPUT</h3>
+      <p data-hud-log></p>
+      <div class="hud-bands">
+        <label>LOW<meter min="0" max="1" value="0"></meter></label>
+        <label>MID<meter min="0" max="1" value="0"></meter></label>
+        <label>HIGH<meter min="0" max="1" value="0"></meter></label>
+      </div>
+    </aside>
+    <aside class="hud-frame hud-composite" aria-label="Rendering diagnostics">
+<svg class="hud-outline" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" vector-effect="non-scaling-stroke" d="M98 72 L75 98 L2 98 L2 2 L98 2 Z"/></svg>
+      <h3>03 / COMPOSITE</h3>
+      <p data-hud-log></p>
+    </aside>
+  </div>
+  <div class="hud-footer">
+    <span>PASS <output data-hud-pass>PARTICLE</output></span>
+    <span>POINTS <output data-hud-count>00000</output></span>
+    <span>INPUT <output data-hud-status>STANDBY</output></span>
+    <button type="button" data-hud-view aria-pressed="false">Live style view</button><a href="#audio-console">Audio controls ↓</a>
+  </div>
+</section>
+<section class="stage" aria-label="Underwater liquid audio visualizer"><canvas id="visualizer"></canvas><div class="stage-label"><span class="dot"></span> <span id="style-label">LIQUID</span> / LIVE CANVAS</div><span class="depth">DEPTH — 0240 M</span><div class="stage-caption">&quot;Beneath the noise, everything flows.&quot;</div><span class="stage-number" id="stage-identifier">UW—01</span></section>
+<div id="audio-mode" class="selectors audio-modes" role="group" aria-label="Audio mode"><button type="button" data-mode="remix" aria-pressed="true">REMIX</button><button type="button" data-mode="create" aria-pressed="false">CREATE</button><button id="quick-start-open" type="button" aria-haspopup="dialog" aria-controls="quick-start">Quick Tips</button></div>
+<div class="mode-actions">
+<div id="remix-comparison" class="remix-comparison"><select id="remix-sound" aria-label="Audio processing mode"><option value="original">Original</option><option value="processed">Processed</option></select></div>
+<div id="create-controls" class="selectors create-controls" role="group" aria-label="CREATE transport" hidden>
+  <button id="generate-score" type="button">Generate</button>
+  <button id="stop-score" type="button" disabled>Stop</button>
+  <button id="restart-score" type="button" disabled>Restart</button>
+</div>
+</div>
+<section class="console" id="audio-console" aria-label="Audio player">
+<button id="play" aria-label="Play audio">▶</button><div class="track"><span id="soundtrack-label" class="eyebrow">UNDERWATER SOUNDTRACK</span><strong id="track-title"></strong><span id="status" role="status">Ready. Press play to dive in.</span></div>
+<div class="timeline"><div class="times"><span id="current">0:00</span><span id="duration">0:00</span></div><input id="seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Track progress" disabled></div>
+<label class="volume">VOL <input id="volume" type="range" min="0" max="1" value="0.7" step="0.01" aria-label="Volume"></label>
+</section>
+<section class="lower"><div><span class="eyebrow">02 / VISUAL LANGUAGE</span><div id="styles" class="selectors style-options" aria-label="Visualizer style"><button data-style="liquid" aria-pressed="true">Liquid</button><button data-style="geometric" aria-pressed="false">Geometric</button><button data-style="glitch" aria-pressed="false">Soundwave</button><button data-style="dreamlike" aria-pressed="false">Dreamlike</button></div></div><div class="analysis"><span class="eyebrow">SIGNAL / REAL-TIME ANALYSIS</span><div class="meters"><label>BASS <meter id="bass" max="1" value="0"></meter></label><label>MID <meter id="mid" max="1" value="0"></meter></label><label>HIGH <meter id="high" max="1" value="0"></meter></label><label>LEVEL <meter id="level" max="1" value="0"></meter></label></div></div><label id="remix-upload" class="upload">Load your own audio<input id="file" type="file" accept="audio/*"></label></section>
+<section class="customization" aria-labelledby="controls-title">
+<div class="control-heading"><div><span class="eyebrow">03 / BREAK THE CONTROLS</span><h2 id="controls-title">Make it misbehave.</h2></div><button id="break-everything" type="button">BREAK EVERYTHING</button></div>
+<div class="parameter-grid">
+<div class="parameter"><label for="chaos">CHAOS <output id="chaos-value" for="chaos">35</output></label><input id="chaos" data-parameter="chaos" type="range" min="0" max="100" step="1" value="35" aria-describedby="chaos-hint"><small id="chaos-hint" class="parameter-hint"><span>Next Generate</span><span>Musical variation</span></small></div>
+<div class="parameter"><label for="speed">SPEED <output id="speed-value" for="speed">40</output></label><input id="speed" data-parameter="speed" type="range" min="0" max="100" step="1" value="40" aria-describedby="speed-hint"><small id="speed-hint" class="parameter-hint"><span>Next Generate</span><span>76 BPM</span></small></div>
+<div class="parameter"><label for="distortion">DISTORTION <output id="distortion-value" for="distortion">35</output></label><input id="distortion" data-parameter="distortion" type="range" min="0" max="100" step="1" value="35" aria-describedby="distortion-hint"><small id="distortion-hint" class="parameter-hint"><span>Live</span><span>Audio saturation</span></small></div>
+<div class="parameter"><label for="color">COLOR <output id="color-value" for="color">50</output></label><input id="color" data-parameter="color" type="range" min="0" max="100" step="1" value="50" aria-describedby="color-hint"><small id="color-hint" class="parameter-hint"><span>Live</span><span>Tonal brightness</span></small></div>
+<div class="parameter"><label for="energy">ENERGY <output id="energy-value" for="energy">50</output></label><input id="energy" data-creative="energy" type="range" min="0" max="100" step="1" value="50" aria-describedby="energy-hint"><small id="energy-hint" class="parameter-hint"><span>Live</span><span>Layer intensity</span></small></div>
+<div class="parameter"><label for="space">SPACE <output id="space-value" for="space">50</output></label><input id="space" data-creative="space" type="range" min="0" max="100" step="1" value="50" aria-describedby="space-hint"><small id="space-hint" class="parameter-hint"><span>Live</span><span>Room depth</span></small></div>
+<div class="parameter" data-create-only hidden><label for="density">DENSITY <output id="density-value" for="density">50</output></label><input id="density" data-creative="density" type="range" min="0" max="100" step="1" value="50" aria-describedby="density-hint"><small id="density-hint" class="parameter-hint"><span>Next Generate</span><span>Arrangement detail</span></small></div>
+<div class="parameter" data-create-only hidden><label for="melody">MELODY <output id="melody-value" for="melody">50</output></label><input id="melody" data-creative="melody" type="range" min="0" max="100" step="1" value="50" aria-describedby="melody-hint"><small id="melody-hint" class="parameter-hint"><span>Live</span><span>Lead volume (0 mutes)</span></small></div>
+</div><div id="create-reset" class="selectors audio-modes"><button id="reset-creative" type="button">Reset to default settings</button></div><p id="control-status" class="control-status" role="status" hidden></p></section>
+<section class="audio-export" aria-labelledby="export-title">
+  <div class="control-heading"><div><span class="eyebrow">04 / EXPORT AUDIO</span><h2 id="export-title">Take the sound with you.</h2></div></div>
+  <div class="export-formats">
+    <button class="export-card" id="export-wav" type="button" aria-label="Export lossless WAV audio"><strong>WAV</strong><small>LOSSLESS</small></button>
+    <button class="export-card" id="export-mp3" type="button" aria-label="Export MP3 audio at 320 kbps"><strong>MP3</strong><small>320 KBPS</small></button>
+  </div>
+  <p class="export-feedback"><span id="export-status" role="status">Choose a format to export your audio.</span><a id="export-download" hidden>Download audio</a></p>
+</section>
+<footer><span>LISTEN. WATCH. AND FEEL.</span><span><i>●</i> <span id="combination">UNDERWATER × LIQUID</span></span></footer>
+</main>
+<dialog id="quick-start" aria-labelledby="quick-start-title">
+  <header class="quick-start-heading">
+    <h2 id="quick-start-title">How it works</h2>
+    <form method="dialog"><button id="quick-start-close" type="submit" aria-label="Close instructions" autofocus>×</button></form>
+  </header>
+  <section>
+    <h3>REMIX</h3>
+    <ul>
+      <li>Select a soundtrack → Play.</li>
+      <li>Or upload your own audio → Play.</li>
+      <li>Choose <strong>Processed</strong> to adjust the audio via Color, Distortion, Space and Energy controls.</li><li>Choose <strong>Original</strong> to hear the recording without those effects.</li>
+    </ul>
+  </section>
+  <section>
+    <h3>CREATE</h3>
+    <ul>
+      <li>Choose an environment → Generate → Play.</li>
+      <li>Generate again to create a different song.</li>
+    </ul>
+  </section>
+  <section>
+    <h3>CONTROLS</h3>
+    <ul>
+      <li><strong>Live:</strong> Changes the sound immediately in CREATE.</li>
+      <li><strong>Next Generate:</strong> Adjust setting → Generate → Stop → Play.</li>
+    </ul>
+  </section>
+  <section>
+    <h3>PLAYBACK</h3>
+    <ul>
+      <li><strong>Play / Pause:</strong> Start or pause the music.</li>
+      <li><strong>Resume:</strong> Continue where you paused.</li>
+      <li><strong>Stop:</strong> Reset to the beginning.</li>
+      <li><strong>Restart:</strong> Play the same song from the start.</li>
+    </ul>
+  </section>
+</dialog>
+<audio id="audio" preload="metadata" loop src="assets/audio/deleradmix.mp3"></audio><script type="module" src="js/app.js"></script><script type="module" src="js/quick-start.js"></script>
+</body></html>
